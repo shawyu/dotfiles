@@ -9,6 +9,9 @@ fi
 CLICOLOR="YES"; export CLICOLOR
 LSCOLORS="ExGxFxdxCxDxDxhbadExEx"; export LSCOLORS
 
+# Turn off history for less
+LESSHISTFILE=/dev/null; export LESSHISTFILE
+
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
