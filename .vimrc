@@ -38,6 +38,10 @@
     set undofile                            " so is persistent undo ...
     set undolevels=1000                     " maximum number of changes that can be undone
     set undoreload=10000                    " maximum number lines to save for undo on a buffer reload
+"   Nice clean swap, undo, and backup files
+    set undodir=~/.vim/.undo//
+    set backupdir=~/.vim/.backup//
+    set directory=~/.vim/.swp//
 "   }
 " }
 " Vim UI {
