@@ -53,6 +53,8 @@
   hi cursorline guibg=#333333               " highlight bg color of current line
   hi CursorColumn guibg=#333333             " highlight cursor
 
+  set cc=80                                 " show vertical highlight at col 80
+
   if has('cmdline_info')
     set ruler                               " show the ruler
 " A ruler on steroids
@@ -87,7 +89,7 @@
   set gdefault                              " the /g flag on :s substitutions by default
   set list
 " Highlight problematic whitespace
-  set listchars=tab:>.,trail:.,extends:#,eol:¬
+  set listchars=tab:▸\ ,trail:▫,extends:#,eol:¬
 " }
 " Formatting {
   set nowrap                                " wrap long lines
