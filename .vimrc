@@ -34,8 +34,8 @@
   set virtualedit=onemore                   " allow for cursor beyond last character
   set history=1000                          " Store a ton of history (default is 20)
 "   Setting up the directories {
-    set backup                              " backups are nice ...
-    set undofile                            " so is persistent undo ...
+    set backup                              " backups are nice
+    set undofile                            " so is persistent undo
     set undolevels=1000                     " maximum number of changes that can be undone
     set undoreload=10000                    " maximum number lines to save for undo on a buffer reload
 "   Nice clean swap, undo, and backup files
