@@ -8,6 +8,7 @@ fi
 
 CLICOLOR="YES"; export CLICOLOR
 LSCOLORS="ExGxFxdxCxDxDxhbadExEx"; export LSCOLORS
+EDITOR="vim"; export EDITOR
 
 # Turn off history for less
 LESSHISTFILE=/dev/null; export LESSHISTFILE

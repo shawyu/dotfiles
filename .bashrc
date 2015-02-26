@@ -4,6 +4,9 @@ alias lsa='ls -Alp'
 alias lsal='ls -Alp'
 alias lss='ls'
 alias ls='ls -p'
+# Make history search more useful
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
