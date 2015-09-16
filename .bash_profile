@@ -16,3 +16,8 @@ LESSHISTFILE=/dev/null; export LESSHISTFILE
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
+
+# Add machine specific bash settings if file exists
+if [ -f ~/.bash_profile.local ]; then
+  source ~/.bash_profile.local
+fi
