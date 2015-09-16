@@ -23,4 +23,7 @@ if [ -f ~/.paths ]; then
   source ~/.paths
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add machine specific bash config if file exists
+if [ -f ~/.bashrc.local ]; then
+  source ~/.bashrc.local
+fi
