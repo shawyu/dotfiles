@@ -7,6 +7,10 @@ alias ls='ls -p'
 # Make history search more useful
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+# Ignore case in tab completion
+bind 'set completion-ignore-case on'
+# Only need 1 tab when there is >1 match
+bind 'set show-all-if-ambiguous on'
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
