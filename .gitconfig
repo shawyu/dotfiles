@@ -3,3 +3,5 @@
   email = shaw.yu@gmail.com
 [include]
   path = $HOME/.gitconfig.local
+[push]
+  default = simple

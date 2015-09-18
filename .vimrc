@@ -33,6 +33,8 @@
   set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
   set virtualedit=onemore                   " allow for cursor beyond last character
   set history=1000                          " Store a ton of history (default is 20)
+  set wildmenu                              " better filename completion
+  set wildmode=longest:list,full            " complete longest string and show match list on first <Tab> then <Tab> again opens wild menu
 "   Setting up the directories {
     set backup                              " backups are nice
     set undofile                            " so is persistent undo
