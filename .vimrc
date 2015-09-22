@@ -1,5 +1,8 @@
 " Shaw Yu's vimrc file
 " Updated 2015-02-08
+
+" Pathogen
+  execute pathogen#infect()
 "
 " Environment {
 "   Basics {
@@ -47,7 +50,8 @@
 "   }
 " }
 " Vim UI {
-  color wombat256                           " load a colorscheme
+"  color wombat256                           " load a colorscheme
+  color solarized                           " load a colorscheme
   set tabpagemax=15                         " only show 15 tabs
   set showmode                              " display the current mode
   set cursorline                            " highlight current line
