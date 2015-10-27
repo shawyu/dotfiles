@@ -1,5 +1,5 @@
 " Shaw Yu's vimrc file
-" Updated 2015-02-08
+" Updated 2015-10-26
 
 " Pathogen
   execute pathogen#infect()
@@ -25,7 +25,8 @@
 " filetype plugin indent on                 " Automatically detect file types.
   syntax on                                 " syntax highlighting
   set mouse=a                               " automatically enable mouse usage
-" set autochdir                             " always switch to the current file directory.. Messes with some plugins, best left commented out
+" set autochdir                             " always switch to the current file directory..
+                                            " Messes with some plugins, best left commented out
 " Not every vim is compiled with this, use the following line instead
 " if you use command-t plugin, it conflicts with this, comment it out.
 " autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
@@ -55,11 +56,11 @@
   set tabpagemax=15                         " only show 15 tabs
   set showmode                              " display the current mode
   set cursorline                            " highlight current line
-
   hi cursorline guibg=#333333               " highlight bg color of current line
-  hi CursorColumn guibg=#333333             " highlight cursor
+  set cursorcolumn                          " highlight current column
+  hi cursorcolumn guibg=#333333             " highlight cursor
 
-  set cc=80                                 " show vertical highlight at col 80
+  set colorcolumn=80                        " show vertical highlight at col 80
 
   if has('cmdline_info')
     set ruler                               " show the ruler
@@ -72,16 +73,32 @@
   if has('statusline')
     set laststatus=2
 " Broken down into easily includeable segments
-    set statusline=%<%f\                    " Filename
+    set statusline=%3(%c%V%)\               " Right aligned file nav info
+    set statusline+=%<%f\                   " Filename
     set statusline+=%w%h%m%r                " Options
-    set statusline+=\ [%{&ff}/%Y]           " filetype
-    set statusline+=\ [%{getcwd()}]         " current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
+    set statusline+=[%{&ff}]                " line ending format
+    set statusline+=%=[%{getcwd()}]         " current dir
+" git branch
+    if exists('*fugitive#head')
+      let head = fugitive#head()
+
+      if empty(head) && exists('*fugitive#detect') && !exists('b:git_dir')
+        call fugitive#detect(getcwd())
+        let head = fugitive#head()
+      endif
+    endif
+
+    if !empty(head)
+      set statusline+=[%{head}]
+    endif
   endif
 
   set backspace=indent,eol,start            " backspace for dummys
   set linespace=0                           " No extra spaces between rows
-  set nu                                    " Line numbers on
+" In vim 7.4+ setting both options below shows current line number on current
+" row but in previous versions they overwrite each other so number is second
+  set relativenumber                        " Relative numbers on
+  set number                                " Line numbers on
   set showmatch                             " show matching brackets/parenthesis
   set incsearch                             " find as you type search
   set hlsearch                              " highlight search terms
@@ -98,11 +115,11 @@
   set listchars=tab:▸\ ,trail:▫,extends:#,eol:¬
 " }
 " Formatting {
-  set wrap                                " wrap long lines
+  set wrap                                  " wrap long lines
   set autoindent                            " indent at the same level of the previous line
-  set shiftwidth=2                          " use indents of 4 spaces
+  set shiftwidth=2                          " use indents of 2 spaces
   set expandtab                             " tabs are spaces, not tabs
-  set tabstop=2                             " an indentation every four columns
+  set tabstop=2                             " an indentation every two columns
   set softtabstop=2                         " let backspace delete indent
   set pastetoggle=<F12>                     " pastetoggle (sane indentation on pastes)
 " set comments=sl:/*,mb:*,elx:*/            " auto format comment blocks
@@ -119,11 +136,8 @@
 " Visual shifting (does not exit Visual mode)
   vnoremap < <gv
   vnoremap > >gv
-" Fix home and end keybindings for screen, particularly on mac
-" - for some reason this fixes the arrow keys too. huh.
-  map  mapmgpudo.. Really Write the file.
+
   cmap w!! w !sudo tee % >/dev/null
-" }
 " GUI Settings {
 " GVIM- (here instead of .gvimrc)
   if has('gui_running')
