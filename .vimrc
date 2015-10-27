@@ -86,10 +86,9 @@
         call fugitive#detect(getcwd())
         let head = fugitive#head()
       endif
-    endif
-
-    if !empty(head)
-      set statusline+=[%{head}]
+      if !empty(head)
+        set statusline+=[%{head}]
+      endif
     endif
   endif
 
