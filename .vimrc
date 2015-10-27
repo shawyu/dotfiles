@@ -135,6 +135,11 @@
 " Visual shifting (does not exit Visual mode)
   vnoremap < <gv
   vnoremap > >gv
+" NERDTree mapping
+  map <silent> <C-n> :NERDTreeToggle<CR>
+" CtrlP mappings
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
 
   cmap w!! w !sudo tee % >/dev/null
 " GUI Settings {
