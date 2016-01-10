@@ -1,9 +1,7 @@
 [user]
   name = Shaw Yu
   email = shaw.yu@gmail.com
-[include]
-  path = $HOME/.gitconfig.local
-[push]
-  default = simple
 [init]
   templatedir = ~/.git_template
+[include]
+  path = $HOME/.gitconfig.local
