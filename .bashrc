@@ -4,6 +4,7 @@ alias lsa='ls -Alp'
 alias lsal='ls -Alp'
 alias lss='ls'
 alias ls='ls -p'
+alias reload='source ~/.bash_profile'
 # Make history search more useful
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
@@ -22,6 +23,8 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+# Add user ~/bin folder
+export PATH="$HOME/bin:$PATH"
 # Add machine specific paths if paths file exists
 if [ -f ~/.paths ]; then
   source ~/.paths
