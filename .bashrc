@@ -23,8 +23,6 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
-# Add user ~/bin folder
-export PATH="$HOME/bin:$PATH"
 # Add machine specific paths if paths file exists
 if [ -f ~/.paths ]; then
   source ~/.paths
