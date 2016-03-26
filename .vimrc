@@ -140,6 +140,8 @@
 " CtrlP mappings
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
+" Disable ex mode
+  noremap Q <Nop>
 
   cmap w!! w !sudo tee % >/dev/null
 " GUI Settings {
