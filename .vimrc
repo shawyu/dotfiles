@@ -135,6 +135,8 @@
 " Visual shifting (does not exit Visual mode)
   vnoremap < <gv
   vnoremap > >gv
+" Split lines on K
+  nnoremap K i<CR><Esc>
 " NERDTree mapping
   map <silent> <C-n> :NERDTreeToggle<CR>
 " CtrlP mappings
