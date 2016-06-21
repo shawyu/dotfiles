@@ -22,18 +22,17 @@
   if !has('win32') && !has('win64')
     set term=$TERM                          " Make arrow and other keys work
   endif
-" filetype plugin indent on                 " Automatically detect file types.
+  filetype plugin on                        " Automatically detect file types.
+  runtime macros/matchit.vim                " Turn on tag matching plugin
   syntax on                                 " syntax highlighting
   set mouse=a                               " automatically enable mouse usage
-" set autochdir                             " always switch to the current file directory..
-                                            " Messes with some plugins, best left commented out
+"
 " Not every vim is compiled with this, use the following line instead
 " if you use command-t plugin, it conflicts with this, comment it out.
 " autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
   scriptencoding utf-8
 
 " set autowrite                             " automatically write a file when leaving a modified buffer
-" set shortmess+=filmnrxoOtT                " abbrev. of messages (avoids 'hit enter')
   set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
   set virtualedit=onemore                   " allow for cursor beyond last character
   set history=1000                          " Store a ton of history (default is 20)
@@ -51,7 +50,6 @@
 "   }
 " }
 " Vim UI {
-"  color wombat256                           " load a colorscheme
   color seti                                " load a colorscheme
   set tabpagemax=15                         " only show 15 tabs
   set showmode                              " display the current mode
