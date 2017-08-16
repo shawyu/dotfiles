@@ -76,7 +76,18 @@
     set statusline+=%<%f\                   " Filename
     set statusline+=%w%h%m%r                " Options
     set statusline+=[%{&ff}]                " line ending format
-    set statusline+=%=[%{getcwd()}]         " current dir
+    set statusline+=%=[%{CurrentDir()}]         " current dir
+
+    function CurrentDir()
+        let parts = split(getcwd(), '/')
+        let currDir = parts[-1]
+        let parts = parts[:-2]
+        let path = []
+        for i in parts
+            let path = [i[:0]] + path
+        endfor
+        return join(reverse(path) + [currDir], '/')
+    endfunction
 " git branch
     if exists('*fugitive#head')
       let head = fugitive#head()
