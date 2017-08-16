@@ -33,6 +33,7 @@
   scriptencoding utf-8
 
 " set autowrite                             " automatically write a file when leaving a modified buffer
+  set clipboard=unnamed                     " copy/paste in tmux
   set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
   set virtualedit=onemore                   " allow for cursor beyond last character
   set history=1000                          " Store a ton of history (default is 20)

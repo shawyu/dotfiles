@@ -13,6 +13,9 @@ EDITOR="vim"; export EDITOR
 # Turn off history for less
 LESSHISTFILE=/dev/null; export LESSHISTFILE
 
+# Try hard not to screw up. Override with `>|` operator rather than `>`.
+set -o noclobber
+
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
