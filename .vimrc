@@ -152,6 +152,11 @@
 " CtrlP mappings
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
+" vim polyglot settings
+  let g:polyglot_disabled = ['json', 'jsonp', 'jsonl'] " vim-json takes care of it
+" vim javascript settings
+  let g:javascript_plugin_jsdoc=1 " turn on jsdoc highlighting
+" let g:javascript_plugin_ngdoc=1
 
 " The Silver Searcher
 if executable('ag')
