@@ -37,6 +37,29 @@ function is_git_repository {
   git branch > /dev/null 2>&1
 }
 
+function is_terraform_repository {
+  [[ "$PWD" =~ terraform ]]
+}
+
+function set_terraform {
+  cloud="☁ "
+  globe="🌐 "
+  account="☥"
+  server="☰ "
+  work="☭ "
+
+  AWS_WORKSPACE=$(terraform workspace show)
+
+  PROFILE="${COLOR_NONE}${cloud}${LIGHT_RED}${AWS_PROFILE}${COLOR_NONE}"
+  REGION="${COLOR_NONE}${globe}${BLUE}${AWS_REGION}${COLOR_NONE}"
+  ACCOUNT="${COLOR_NONE}${account}${LIGHT_GRAY}${AWS_ACCOUNT}${COLOR_NONE}"
+  ENVIRONMENT="${COLOR_NONE}${server}${LIGHT_GREEN}${AWS_ENVIRONMENT}${COLOR_NONE}"
+  WORKSPACE="${COLOR_NONE}${work}${WHITE}${AWS_WORKSPACE}${COLOR_NONE}"
+
+  TF="${PROFILE} ${REGION} ${ACCOUNT} ${ENVIRONMENT} ${WORKSPACE}
+"
+}
+
 # Determine the branch/state information for this git repository.
 function set_git_branch {
   # Capture the output of the "git status" command.
@@ -82,7 +105,7 @@ function set_git_branch {
 # previous command.
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
-      PROMPT_SYMBOL="\$"
+      PROMPT_SYMBOL="${WHITE}\$${COLOR_NONE}"
   else
       PROMPT_SYMBOL="${LIGHT_RED}\$${COLOR_NONE}"
   fi
@@ -102,9 +125,15 @@ function set_bash_prompt () {
     BRANCH=''
   fi
 
+  if is_terraform_repository ; then
+    set_terraform
+  else
+    TF=''
+  fi
+
   # Set the bash prompt variable.
   PS1="${GREEN}\u@\h ${YELLOW}\w${COLOR_NONE} ${BRANCH}
-${PROMPT_SYMBOL} "
+${TF}${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
