@@ -59,7 +59,7 @@
   set cursorcolumn                          " highlight current column
   hi cursorcolumn guibg=#333333             " highlight cursor
 
-  set colorcolumn=80                        " show vertical highlight at col 80
+  set colorcolumn=100                       " show vertical highlight at col 80
 
   if has('cmdline_info')
     set ruler                               " show the ruler
