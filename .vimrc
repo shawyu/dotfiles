@@ -136,6 +136,9 @@
 "  autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
 
+" Go specific file formatting
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 " Clearing highlighted search
   nmap <silent> <leader>/ :nohlsearch<CR>
 " Shortcuts
