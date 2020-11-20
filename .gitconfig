@@ -8,6 +8,9 @@
 [init]
   templatedir = ~/.git_template
   defaultBranch = main
+[diff]
+  colorMoved = default
+  algorithm = histogram
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
