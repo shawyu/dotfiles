@@ -51,7 +51,7 @@
 "   }
 " }
 " Vim UI {
-  color seti                                " load a colorscheme
+  color gruvbox                             " load a colorscheme
   set tabpagemax=15                         " only show 15 tabs
   set showmode                              " display the current mode
   set cursorline                            " highlight current line
