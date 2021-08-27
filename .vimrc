@@ -77,6 +77,7 @@
     set statusline+=%w%h%m%r                " Options
     set statusline+=[%{&ff}]                " line ending format
     set statusline+=%=[%{CurrentDir()}]         " current dir
+    set statusline+=%{FugitiveStatusline()} " git branch
 
     function CurrentDir()
         let parts = split(getcwd(), '/')
@@ -88,18 +89,7 @@
         endfor
         return join(reverse(path) + [currDir], '/')
     endfunction
-" git branch
-    if exists('*fugitive#head')
-      let head = fugitive#head()
 
-      if empty(head) && exists('*fugitive#detect') && !exists('b:git_dir')
-        call fugitive#detect(getcwd())
-        let head = fugitive#head()
-      endif
-      if !empty(head)
-        set statusline+=[%{head}]
-      endif
-    endif
   endif
 
   set backspace=indent,eol,start            " backspace for dummys
@@ -141,6 +131,8 @@
 
 " Clearing highlighted search
   nmap <silent> <leader>/ :nohlsearch<CR>
+" Open git blame in fugitive
+  nmap <silent> <leader>a :Git blame<CR>
 " Shortcuts
 " Change Working Directory to that of the current file
   cmap cwd lcd %:p:h
